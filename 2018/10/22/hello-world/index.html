@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>js的数据类型 | DanneBlog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    
+      <link rel="icon" href="/favicon.png">
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+<link rel="stylesheet" href="/js/google-code-prettify/tomorrow-night-eighties.min.css">
+
+
+  <meta name="generator" content="Hexo 4.2.0"></head>
+
+  <body>
+
+<header>
+	<a id="logo" href="//github.com/cat00108" target="_blank" rel="noopener" title="DanneBlog">
+	<img src="/favicon.png" alt="DanneBlog"></a>
+	
+	
+
+	
+		<!--侧边导航栏-->
+		<a id="nav-toggle" href="#"><span></span></a>
+
+<nav>
+	<div class="menu-top-container">
+		<ul id="menu-top" class="menu">
+			
+				
+				<li class="current-menu-item">
+					<a href="http://weibo.com/" target="_blank">Weibo</a>
+				</li>
+			
+				
+				<li class="current-menu-item">
+					<a href="https://github.com/" target="_blank">github</a>
+				</li>
+			
+				
+				<li class="current-menu-item">
+					<a href="https://www.zhihu.com/" target="_blank">zhihu</a>
+				</li>
+			
+		</ul>
+	</div>
+</nav>
+	
+
+</header>
+<div class="m-header ">
+	<section id="hero1" class="hero">
+		<div class="inner">
+		</div>
+	</section>
+	
+		<figure class="top-image" data-enable=true></figure>
+	
+</div>
+
+<!--文章列表-->
+<div class="wrapper">
+  
+    <!--文章-->
+<article>
+	
+  
+    <h1 class="post-title" itemprop="name">
+      js的数据类型
+    </h1>
+  
+
+	<div class='post-body mb'>
+		<h2 id="一、js的数据类型"><a href="#一、js的数据类型" class="headerlink" title="一、js的数据类型"></a>一、js的数据类型</h2><p>Null、Undefined、Boolean、Number、String、Array、Object</p>
+<p>还能叫得出名字的还有：NaN(Not a Number)、正则(RegExp)、日期(Date)、函数(Function)、arguments等等，其中NaN属于Number类型，正则、日期、函数、arguments属于Object，感觉js的数据类型有点乱。</p>
+<h2 id="二、js数据类型的分类：值类型、引用类型"><a href="#二、js数据类型的分类：值类型、引用类型" class="headerlink" title="二、js数据类型的分类：值类型、引用类型"></a>二、js数据类型的分类：值类型、引用类型</h2><p>// 值类型</p>
+<p>console.log(typeof(x));    // undefined</p>
+<p>console.log(typeof(10));  // number</p>
+<p>console.log(typeof(‘abc’)); // string</p>
+<p>console.log(typeof(true));  // boolean</p>
+<p>console.log(typeof (null));  //object ==&gt; 结果是object，但是属于值类型</p>
+<p>// 引用类型</p>
+<p>console.log(typeof(function () { }));  //function</p>
+<p>console.log(typeof([1, ‘a’, true]));  //object</p>
+<p>console.log(typeof ({ a: 10, b: 20 }));  //object</p>
+<p>console.log(typeof (new Number(10)));  //object</p>
+<p>typeof对js数据的判断结果共有6种：</p>
+<p>undefined, number, string, boolean, function, object</p>
+<h3 id="1、分类："><a href="#1、分类：" class="headerlink" title="1、分类："></a>1、分类：</h3><p>简单的值类型(不是对象)：null、undefined、boolean、number、string。</p>
+<p>复杂的引用类型(是对象)：函数、数组、对象、new Number(10)、new String(‘10’)、new Boolean(true)、正则、日期等等。</p>
+<h3 id="2、为什么说null不是对象呢？typeof-null-的值不是object吗？"><a href="#2、为什么说null不是对象呢？typeof-null-的值不是object吗？" class="headerlink" title="2、为什么说null不是对象呢？typeof null 的值不是object吗？"></a>2、为什么说null不是对象呢？typeof null 的值不是object吗？</h3><p>a. 它老祖宗都不认他。</p>
+<p>console.log(null instanceof Object); // false</p>
+<p>b. 对象的定义是：若干属性的集合，而null不符合对象的定义，不是引用类型。</p>
+<p>var nullType = null;</p>
+<p>nullType.a = 123; // 报错 ==&gt; Unexpected token .</p>
+<p>综上：null不是一个对象，不是复杂的引用类型。null最初是用来表示空对象的，但是不属于对象。typeof对null的判断是js的一个bug。</p>
+<h2 id="三、如何判断一个变量的数据类型"><a href="#三、如何判断一个变量的数据类型" class="headerlink" title="三、如何判断一个变量的数据类型"></a>三、如何判断一个变量的数据类型</h2><h3 id="1、值类型的类型判断用typeof"><a href="#1、值类型的类型判断用typeof" class="headerlink" title="1、值类型的类型判断用typeof"></a>1、值类型的类型判断用typeof</h3><p>// 值类型</p>
+<p>console.log(typeof(x));    // undefined</p>
+<p>console.log(typeof(10));  // number</p>
+<p>console.log(typeof(‘abc’)); // string</p>
+<p>console.log(typeof(true));  // boolean</p>
+<p>//虽然function也是一个引用类型对象，但是可以通过typeof判断：</p>
+<p>var fn = function() {};</p>
+<p>console.log(typeof fn); // function</p>
+<p>如何判断null类型？用 ===：</p>
+<p>console.log(null === null); // true</p>
+<p>不能用 == ，因为：</p>
+<p>console.log(null == undefined); // true</p>
+<p>console.log(null === undefined); // false</p>
+<h3 id="2、引用类型的类型判断用instanceof"><a href="#2、引用类型的类型判断用instanceof" class="headerlink" title="2、引用类型的类型判断用instanceof"></a>2、引用类型的类型判断用instanceof</h3><p>//引用类型</p>
+<p>console.log(new String(‘string’) instanceof String); // true</p>
+<p>console.log(new Number(10) instanceof Number); // true</p>
+<p>console.log(new Boolean(true) instanceof Boolean); // true</p>
+<p>console.log(new Array(3,4,5) instanceof Array); // true</p>
+<p>console.log([] instanceof Array); // true</p>
+<p>var fn = function() {}</p>
+<p>console.log(fn instanceof Function); // true</p>
+
+	</div>
+	<div class="meta split">
+		
+			<span>本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次</span>
+		
+		<time class="post-date" datetime="2018-10-22T12:03:06.000Z" itemprop="datePublished">2018-10-22</time>
+	</div>
+</article>
+
+<!--评论-->
+
+	
+<div class="ds-thread" data-thread-key="hello-world" data-title="js的数据类型" data-url="http://yoursite.com/2018/10/22/hello-world/"></div>
+<script type="text/javascript">
+
+var duoshuoQuery = {short_name:"yumemor"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+
+
+  
+</div>
+
+
+  <svg id="bigTriangleColor" width="100%" height="40" viewBox="0 0 100 102" preserveAspectRatio="none">
+    <path d="M0 0 L50 100 L100 0 Z"></path>
+  </svg>
+
+  
+
+
+  <div class="wrapper"></div>
+
+
+
+
+
+<div class="fat-footer">
+	<div class="wrapper">
+		<div class="layout layout--center">
+			<div class="layout__item palm-mb">
+				<div class="media">
+					<img class="headimg" src='/avatar.jpg' alt='Danne Lay'>
+					<div class="media__body">
+						<h4>Danne Lay</h4>
+						<p class='site-description'>Stay Hungry, Stay Foolish.</p>
+					</div>
+				</div>
+				<div class="author-contact">
+					<ul>
+						
+							
+							<li>
+				        		<a href="http://weibo.com/" target="_blank">
+				        			
+				        				<i class="iconfont icon-weibo"></i>
+				        			
+				        		</a>
+				        	</li>
+						
+							
+							<li>
+				        		<a href="https://github.com/" target="_blank">
+				        			
+				        				<i class="iconfont icon-github"></i>
+				        			
+				        		</a>
+				        	</li>
+						
+							
+							<li>
+				        		<a href="https://www.zhihu.com/" target="_blank">
+				        			
+										<i class="iconfont icon-zhihu"></i>
+				        			
+				        		</a>
+				        	</li>
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<footer class="footer" role="contentinfo">
+	<div class="wrapper wrapper--wide split split--responsive">
+		
+			<span>本站总访问量 <span id="busuanzi_value_site_pv"></span> 次, 访客数 <span id="busuanzi_value_site_uv"></span> 人次</span>
+		
+	</div>
+</footer>
+
+	<!-－这里导入了 lib.js 里面涵盖了 jQuery 等框架 所以注释掉-->
+	<!--
+<script src="http://lib.sinaapp.com/js/jquery/2.0/jquery.min.js"></script>
+-->
+	
+<script src="/js/lib.js"></script>
+
+	
+<script src="/js/google-code-prettify/prettify.js"></script>
+
+	
+<script src="/js/module.js"></script>
+
+	
+<script src="/js/script.js"></script>
+
+	
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+	<script type='text/javascript'>
+		//代码高亮
+		$(document).ready(function(){
+	 		$('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+   			prettyPrint();
+		});
+	</script>
+	</body>
+</html>
