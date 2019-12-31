@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     
-    <title>git 查看本机的ssh公钥，生成公钥，并添加到相应的代码仓库 | DanneBlog</title>
+    <title>nvm安装成功后，但命令不可用(command not found) | DanneBlog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     
@@ -75,21 +75,26 @@
 	
   
     <h1 class="post-title" itemprop="name">
-      git 查看本机的ssh公钥，生成公钥，并添加到相应的代码仓库
+      nvm安装成功后，但命令不可用(command not found)
     </h1>
   
 
 	<div class='post-body mb'>
-		<h3 id="1、查看ssh"><a href="#1、查看ssh" class="headerlink" title="1、查看ssh"></a>1、查看ssh</h3><pre><code class="bash">$ cd ~/.ssh</code></pre>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server</code></pre>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate</code></pre>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy</code></pre>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-<h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;</code></pre>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+		<p>Nvm安装成功后，使用nvm命令却提示command not found，mac终端解决办法如下：</p>
+<p>1、进入nvm安装到文件目录</p>
+<pre><code> cd ～/.nvm</code></pre><p>2、查看目录下文件列表</p>
+<pre><code> ls </code></pre><p>3、若无.bash_profile文件，则创建该文件：</p>
+<p> 创建文件步骤：</p>
+<p> 3.1 touch .bash_profile</p>
+<p> 3.2 open .bash_profile</p>
+<p> 3.3 将下部分文件粘贴至 .bash_profile文件 </p>
+<pre><code class="bash">export NVM_DIR=&quot;$([ -z &quot;${XDG_CONFIG_HOME-}&quot; ] &amp;&amp; printf %s &quot;${HOME}/.nvm&quot; || printf %s &quot;${XDG_CONFIG_HOME}/nvm&quot;)&quot;
+[ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; \. &quot;$NVM_DIR/nvm.sh&quot; # This loads nvm</code></pre>
+<p> 3.4 保存文件，关闭此文件</p>
+<p> 3.5 更新刚配置的环境变亮</p>
+<pre><code>   source .bash_profile</code></pre><p>4、输入nvm命令，验证是否成功，</p>
+<p> 例如nvm use 6.10.2，若已安装node 该版本node，则提示已切换至此版本，若无安装，则提示未安装此版本，请安装。</p>
+<p> 此时，nvm可正常使用</p>
 
 	</div>
 	<div class="meta split">
@@ -103,7 +108,7 @@
 <!--评论-->
 
 	
-<div class="ds-thread" data-thread-key="day" data-title="git 查看本机的ssh公钥，生成公钥，并添加到相应的代码仓库" data-url="http://yoursite.com/2019/12/24/day/"></div>
+<div class="ds-thread" data-thread-key="day" data-title="nvm安装成功后，但命令不可用(command not found)" data-url="http://yoursite.com/2019/12/24/day/"></div>
 <script type="text/javascript">
 
 var duoshuoQuery = {short_name:"yumemor"};
